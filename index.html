@@ -840,6 +840,29 @@
 
   .contact-form .btn { width: 100%; margin-top: var(--space-1); }
 
+  .form-error {
+    margin-top: var(--space-2);
+    font-size: 0.85rem;
+    color: var(--mauve);
+  }
+
+  .contact-success {
+    background: #fff;
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    padding: var(--space-5) var(--space-4);
+    text-align: center;
+  }
+
+  .contact-success .success-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: var(--space-1);
+  }
+
   /* ---------- Footer ---------- */
 
   footer {
@@ -1157,7 +1180,9 @@
         </div>
       </div>
 
-      <form class="contact-form reveal" action="mailto:hello@michelleschroeder.com" method="post" enctype="text/plain">
+      <form id="contact-form" class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="position:absolute; left:-9999px;"><label>Don't fill this out: <input name="bot-field"></label></p>
         <div class="form-row two">
           <div class="field">
             <label for="name">Name</label>
@@ -1188,7 +1213,12 @@
           <textarea id="message" name="message" placeholder="Tell me what's broken, slow, or stuck..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
+        <p id="form-error" class="form-error" style="display:none;">Something went wrong. Please email me directly at <a href="mailto:hello@michelleschroeder.com">hello@michelleschroeder.com</a>.</p>
       </form>
+      <div id="contact-success" class="contact-success reveal" style="display:none;">
+        <p class="success-title">Got it, thank you.</p>
+        <p>I'll reply within one business day.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1221,6 +1251,34 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     items.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    function encode(data) {
+      return Object.keys(data).map(function (key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+      }).join('&');
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var errorEl = document.getElementById('form-error');
+      errorEl.style.display = 'none';
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data)
+      }).then(function () {
+        form.style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+      }).catch(function () {
+        errorEl.style.display = 'block';
+      });
+    });
   })();
 </script>
 
