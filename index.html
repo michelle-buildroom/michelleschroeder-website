@@ -1272,7 +1272,8 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode(data)
-      }).then(function () {
+      }).then(function (response) {
+        if (!response.ok) throw new Error('Form submission failed: ' + response.status);
         form.style.display = 'none';
         document.getElementById('contact-success').style.display = 'block';
       }).catch(function () {
