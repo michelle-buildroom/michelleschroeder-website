@@ -443,7 +443,8 @@
   }
 
   @media (max-width: 720px) {
-    .stats-grid { grid-template-columns: 1fr; gap: var(--space-5); }
+    .stats-band { padding: var(--space-4) 0; }
+    .stats-grid { grid-template-columns: 1fr; gap: var(--space-3); }
     .stat-item { flex-direction: column; gap: 6px; }
     .stat-arrow { transform: rotate(90deg); }
   }
@@ -807,6 +808,12 @@
     background: var(--sage);
   }
 
+  .tool-note {
+    font-size: 0.88rem;
+    color: var(--slate);
+    margin: var(--space-2) 0 0;
+  }
+
   /* ---------- Contact ---------- */
 
   .contact-grid {
@@ -1159,9 +1166,9 @@
           <span class="tool-pill">Zapier &amp; Make</span>
           <span class="tool-pill">SlickText</span>
           <span class="tool-pill">Data Studio</span>
-          <span class="tool-pill">SAP Business One</span>
           <span class="tool-pill">Buzzsprout</span>
         </div>
+        <p class="tool-note">New to me isn't a problem. I pick up unfamiliar platforms fast and keep moving.</p>
       </div>
     </div>
   </div>
@@ -1178,22 +1185,22 @@
       <div class="step reveal">
         <div class="step-number">01</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17l6-6 4 4 8-8"></path>
+          <path d="M15 7h6v6"></path>
+        </svg>
+        <h3>You built something real. Now it's running you.</h3>
+        <p>More revenue, more to manage, more that only you know how to do. That's not a you problem, it's a systems problem.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">02</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="5" width="18" height="16" rx="2"></rect>
           <path d="M3 10h18"></path>
           <path d="M8 3v4"></path>
           <path d="M16 3v4"></path>
         </svg>
-        <h3>Book a free discovery call</h3>
-        <p>15 minutes, no obligation. Tell me what's sitting on your to-do list that you keep pushing off and we'll figure out which problem would give you the biggest relief in a VIP Day.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-number">02</div>
-        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19h16"></path>
-          <path d="M4 15l4-4 3 3 5-6 4 5"></path>
-        </svg>
-        <h3>We scope it and lock a date</h3>
-        <p>You get a same-day proposal and invoice. Once it's paid, you fill out a short intake form so I hit the ground running on the day itself.</p>
+        <h3>Tell me where the bottleneck is</h3>
+        <p>A real conversation, not a sales pitch. Tell me what's broken, what keeps getting pushed to the bottom of your list, and what's eating up your time. The second we hang up, it's not just sitting on your list in the back of your mind anymore, it's someone else's job now.</p>
       </div>
       <div class="step reveal">
         <div class="step-number">03</div>
@@ -1201,8 +1208,8 @@
           <circle cx="12" cy="12" r="9"></circle>
           <path d="M12 7v5l3 3"></path>
         </svg>
-        <h3>Your problem gets solved</h3>
-        <p>You walk away with a Loom walkthrough and a one-page summary of exactly what changed, so nothing lives only in my head either.</p>
+        <h3>You get back to the work you love</h3>
+        <p>The problem's handled. You get your time and headspace back for the part of the business that's actually yours, the vision, the creative work, the reason you started this.</p>
       </div>
     </div>
   </div>
@@ -1213,7 +1220,7 @@
     <div class="section-head reveal">
       <p class="section-eyebrow">Pricing</p>
       <h2 class="section-title">Pick the level of support you need</h2>
-      <p class="section-sub">Most clients start with a VIP Day, then move into project or ongoing support.</p>
+      <p class="section-sub">Still the Chief Everything Officer of your own business? Here's how to stop. Most clients start with a VIP Day, then move into project or ongoing support.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card reveal">
@@ -1227,7 +1234,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>One-page summary of changes</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>No ongoing commitment</li>
         </ul>
-        <a href="https://calendly.com/michelle_schroeder/discovery" target="_blank" rel="noopener" class="btn btn-outline">Book a VIP Day</a>
+        <a href="vip-day.html" class="btn btn-outline">Book a VIP Day</a>
       </div>
 
       <div class="price-card featured reveal">
@@ -1236,23 +1243,23 @@
         <p class="price-desc">For work that's bigger than a day: a funnel rebuild, a new system rollout, or cleaning up months of operational debt.</p>
         <p class="price-amount">Starting at $1,800 <span>scoped</span></p>
         <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Operations audits, SOPs, and workflow builds</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Platform migrations, no lost data or history</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Dashboard builds, tool matched to your business</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Fixed scope, fixed price, fixed timeline</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Weekly progress updates</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Documentation for your team</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>30 days of post-launch support</li>
         </ul>
         <a href="#contact" class="btn btn-primary">Scope a Project</a>
       </div>
 
       <div class="price-card reveal">
         <p class="price-name">Ongoing Retainer</p>
-        <p class="price-desc">Ongoing operational support for founders who need a right hand, not another to-do list. Scope is fixed up front, so you always know what's covered.</p>
+        <p class="price-desc">For founders doing $20K+ months who need a right hand, not another to-do list. Scope is fixed up front, so you always know what's covered.</p>
         <p class="price-amount">Starting at $2,000 <span>/ month</span></p>
         <ul class="price-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Defined scope, not billable hours</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Team management and delegation support</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Dashboard and systems maintenance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Recurring SOP upkeep</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Direct Slack access</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Systems, tech, and task ownership</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Monthly priorities review</li>
         </ul>
         <a href="#contact" class="btn btn-outline">Ask About Retainers</a>
       </div>
