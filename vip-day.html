@@ -190,10 +190,23 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid var(--mist);
-    border-top: 3px solid var(--honey);
+    border-left: 3px solid var(--mauve);
     border-radius: 4px;
     padding: var(--space-4) var(--space-3);
     box-shadow: 0 20px 40px -18px rgba(46,50,50,0.25);
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .hero-note {
+    font-size: 0.82rem;
+    color: var(--slate);
   }
 
   @media (min-width: 800px) {
@@ -241,9 +254,9 @@
   /* ---------- Facts band ---------- */
 
   .facts-band {
-    background: #F5F3EE;
-    border-top: 1px solid var(--mist);
-    border-bottom: 1px solid var(--mist);
+    background: linear-gradient(180deg, #F3EEF1 0%, #EFE8EC 100%);
+    border-top: 1px solid var(--lilac);
+    border-bottom: 1px solid var(--lilac);
     padding: var(--space-4) 0;
   }
 
@@ -257,11 +270,25 @@
     text-align: center;
   }
 
+  .facts-grid > div {
+    position: relative;
+  }
+
+  .facts-grid > div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: calc(var(--space-3) / -2);
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: rgba(151, 127, 148, 0.25);
+  }
+
   .fact-num {
     font-family: var(--font-display);
     font-weight: 600;
     font-size: clamp(1.8rem, 4vw, 2.4rem);
-    color: var(--ink);
+    color: var(--mauve);
     line-height: 1;
     margin: 0 0 6px;
   }
@@ -315,20 +342,6 @@
     margin: 0;
   }
 
-  /* ---------- Explainer ---------- */
-
-  .explainer {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .explainer p {
-    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
-    line-height: 1.7;
-    color: var(--ink);
-  }
-
   /* ---------- Testimonials ---------- */
 
   .testimonial-grid {
@@ -341,6 +354,7 @@
   .testimonial {
     background: #fff;
     border: 1px solid var(--mist);
+    border-top: 3px solid var(--honey);
     border-radius: var(--radius);
     padding: var(--space-4) var(--space-3);
     display: flex;
@@ -414,6 +428,7 @@
   .step {
     background: #fff;
     border: 1px solid var(--mist);
+    border-top: 3px solid var(--honey);
     border-radius: var(--radius);
     padding: var(--space-3);
     text-align: left;
@@ -455,6 +470,7 @@
   .detail-card {
     background: #fff;
     border: 1px solid var(--mist);
+    border-top: 3px solid var(--honey);
     border-radius: var(--radius);
     padding: var(--space-4);
   }
@@ -497,7 +513,7 @@
 
   .cta-section {
     background: linear-gradient(160deg, #F5F3EE 0%, #EFE9DE 100%);
-    border-top: 1px solid var(--mist);
+    border-top: 2px solid rgba(191, 164, 111, 0.6);
   }
 
   .cta-inner {
@@ -580,6 +596,10 @@
     <p class="eyebrow">VIP Day</p>
     <h1>The thing you keep avoiding? Let's fix it in one day.</h1>
     <p class="hero-sub">VIP Day is one focused day where I solve a single operational problem, start to finish, for <strong>$650 flat</strong>. Not a proposal. Not a project plan. A fix.</p>
+    <div class="hero-cta-row">
+      <a href="https://calendly.com/michelle_schroeder/discovery" target="_blank" rel="noopener" class="btn btn-primary">Book Your Free Call</a>
+      <span class="hero-note">Free 15-minute discovery call. No pressure, no pitch deck.</span>
+    </div>
   </div>
 </header>
 
@@ -606,18 +626,20 @@
 
 <!-- Short explainer: what it does -->
 <section id="what-it-is">
-  <div class="wrap explainer reveal">
-    <p class="section-eyebrow">What It Is</p>
-    <h2 class="section-title">One day. One problem. Done.</h2>
-    <p>You tell me the one thing that's broken, slow, or stuck. I spend a full day fixing it, not scoping it, not scheduling it for next quarter. You get a working system back, not homework.</p>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">What It Is</p>
+      <h2 class="section-title">One day. One problem. Done.</h2>
+      <p class="section-sub">You tell me the one thing that's broken, slow, or stuck. I spend a full day fixing it, not scoping it, not scheduling it for next quarter. You get a working system back, not homework.</p>
+    </div>
   </div>
 </section>
 
-<!-- Social proof -->
+<!-- Testimonials -->
 <section id="testimonials" style="background: #F5F3EE;">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="section-eyebrow">Social Proof</p>
+      <p class="section-eyebrow">Testimonials</p>
       <h2 class="section-title">What it's like to work with me</h2>
     </div>
     <div class="testimonial-grid">
@@ -686,7 +708,7 @@
       </div>
       <div class="detail-card reveal">
         <h3>Good VIP Day problems</h3>
-        <ul class="check-list">
+        <ul class="check-list x">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>You're manually doing something every week that automation could handle for you</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>Your checkout isn't set up right, or isn't connecting to your offer</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>An email sequence or landing page is written but never got loaded, formatted, or published</li>
